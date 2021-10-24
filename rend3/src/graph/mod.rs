@@ -82,7 +82,34 @@ impl<'node> RenderGraph<'node> {
         }
     }
 
-    pub fn execute(
+    /// Run the rendergraph, rendering all the nodes recorded onto it.
+    ///
+    /// This function is async because it acquires the swapchain frame on another thread as to not block this one.
+    ///
+    /// The future returned by this function cannot be spawned on most standalone executors as it is both !Send and not 'static.
+    ///
+    /// If you don't care that your thread will be blocked during the enitirety of the acquire, use a block_on implementation of your choice.
+    ///
+    /// If you do care and want to do work while it is blocked, I recommend the following:
+    ///
+    /// ```no_run
+    /// use futures_lite::future::{poll_once, block_on};
+    /// use std::pin::Pin;
+    ///
+    /// let graph = rend3::RenderGraph::new();
+    /// # let (renderer, output, cmd_bufs, ready) = unimplemented!();
+    /// let execute_future = graph.execute(&renderer, output, cmd_bufs, &ready);
+    /// // SAFETY: by shadowing the original future with the pin, we ensure we can never actually move it.
+    /// let execute_future = unsafe { Pin::new_unchecked(&mut execute_future) };
+    ///
+    /// // Run everything before the acquire.
+    /// let render_results = block_on(poll_once(&mut execute_future));
+    ///
+    /// // Do whatever work you want to do with this thread.
+    ///
+    /// let render_results = render_results.unwrap_or_else(|| block_on(execute_future));
+    /// ```
+    pub async fn execute(
         self,
         renderer: &Arc<Renderer>,
         output: OutputFrame,
@@ -269,7 +296,10 @@ impl<'node> RenderGraph<'node> {
 
                 // TODO: error
                 // SAFETY: Same context as the above unsafe.
-                unsafe { &mut *output_cell.get() }.acquire().unwrap();
+                unsafe { &mut *output_cell.get() }
+                    .acquire(&renderer.acquire_thread)
+                    .await
+                    .unwrap();
             }
 
             if !RenderPassTargets::compatible(&current_rpass_desc, &node.rpass) {

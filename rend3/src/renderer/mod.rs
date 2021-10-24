@@ -9,7 +9,7 @@ use crate::{
         Camera, DirectionalLight, DirectionalLightChange, DirectionalLightHandle, MaterialHandle, Mesh, MeshHandle,
         Object, ObjectHandle, Texture, TextureHandle,
     },
-    util::mipmap::MipmapGenerator,
+    util::{acquire::AcquireThread, mipmap::MipmapGenerator},
     ExtendedAdapterInfo, InstanceAdapterDevice, ReadyData, RendererInitializationError, RendererMode,
 };
 use glam::Mat4;
@@ -56,6 +56,8 @@ pub struct Renderer {
 
     /// Tool which generates mipmaps from a texture.
     pub mipmap_generator: MipmapGenerator,
+    /// Tool which shoves acquires off to another thread.
+    pub acquire_thread: AcquireThread,
 
     /// Stores gpu timing and debug scopes.
     pub profiler: Mutex<GpuProfiler>,

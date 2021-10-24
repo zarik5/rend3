@@ -1,7 +1,7 @@
 use std::sync::Arc;
 use wgpu::{SurfaceError, SurfaceTexture, TextureView, TextureViewDescriptor};
 
-use crate::types::Surface;
+use crate::{types::Surface, util::acquire::AcquireThread};
 
 pub enum OutputFrame {
     // A surface which has not yet been acquired. This lets rend3 acquire as late as possible.
@@ -18,22 +18,9 @@ pub enum OutputFrame {
 }
 
 impl OutputFrame {
-    pub fn acquire(&mut self) -> Result<(), SurfaceError> {
+    pub async fn acquire(&mut self, acquire: &AcquireThread) -> Result<(), SurfaceError> {
         if let Self::Surface { surface } = self {
-            profiling::scope!("OutputFrame::acquire");
-            let mut retrieved_frame = None;
-            for _ in 0..10 {
-                profiling::scope!("Inner Acquire Loop");
-                match surface.get_current_texture() {
-                    Ok(frame) => {
-                        retrieved_frame = Some(frame);
-                        break;
-                    }
-                    Err(SurfaceError::Timeout) => {}
-                    Err(e) => return Err(e),
-                }
-            }
-            let surface_tex = retrieved_frame.expect("Swapchain acquire timed out 10 times.");
+            let surface_tex = acquire.acquire(Arc::clone(surface)).await?;
 
             let view = surface_tex.texture.create_view(&TextureViewDescriptor::default());
 

@@ -202,7 +202,7 @@ fn main() {
             tonemapping_routine.add_to_graph(&mut graph);
 
             // Dispatch a render using the built up rendergraph!
-            graph.execute(&renderer, frame, cmd_bufs, &ready);
+            pollster::block_on(graph.execute(&renderer, frame, cmd_bufs, &ready));
         }
         // Other events we don't care about
         _ => {}

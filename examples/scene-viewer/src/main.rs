@@ -425,7 +425,7 @@ fn main() {
             tonemapping_routine.add_to_graph(&mut graph);
 
             // Dispatch a render using the built up rendergraph!
-            previous_profiling_stats = graph.execute(&renderer, frame, cmd_bufs, &ready);
+            previous_profiling_stats = pollster::block_on(graph.execute(&renderer, frame, cmd_bufs, &ready));
             // mark the end of the frame for tracy/other profilers
             profiling::finish_frame!();
         }

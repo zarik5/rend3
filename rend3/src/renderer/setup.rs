@@ -1,9 +1,4 @@
-use crate::{
-    instruction::InstructionStreamPair,
-    resources::{CameraManager, DirectionalLightManager, MaterialManager, MeshManager, ObjectManager, TextureManager},
-    util::mipmap::MipmapGenerator,
-    InstanceAdapterDevice, Renderer, RendererInitializationError,
-};
+use crate::{InstanceAdapterDevice, Renderer, RendererInitializationError, instruction::InstructionStreamPair, resources::{CameraManager, DirectionalLightManager, MaterialManager, MeshManager, ObjectManager, TextureManager}, util::{acquire::AcquireThread, mipmap::MipmapGenerator}};
 use parking_lot::{Mutex, RwLock};
 use rend3_types::{Camera, TextureFormat};
 use std::sync::Arc;
@@ -50,6 +45,8 @@ pub fn create_renderer(
     let mut profiler = wgpu_profiler::GpuProfiler::new(4, iad.queue.get_timestamp_period());
     profiler.enable_timer = features.contains(wgpu_profiler::GpuProfiler::REQUIRED_WGPU_FEATURES);
 
+    let acquire_thread = AcquireThread::new();
+
     Ok(Arc::new(Renderer {
         instructions: InstructionStreamPair::new(),
 
@@ -67,6 +64,8 @@ pub fn create_renderer(
         directional_light_manager,
 
         mipmap_generator,
+        acquire_thread,
+        
         profiler: Mutex::new(profiler),
     }))
 }

@@ -190,7 +190,7 @@ fn main() {
                 egui_routine.add_to_graph(&mut graph, input);
 
                 // Dispatch a render using the built up rendergraph!
-                graph.execute(&renderer, frame, cmd_bufs, &ready);
+                pollster::block_on(graph.execute(&renderer, frame, cmd_bufs, &ready));
 
                 *control_flow = ControlFlow::Poll;
             }
