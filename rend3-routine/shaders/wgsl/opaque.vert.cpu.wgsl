@@ -43,27 +43,27 @@ var<private> i_coords1_1: vec2<f32>;
 var<private> perVertexStruct: gl_PerVertex = gl_PerVertex(vec4<f32>(0.0, 0.0, 0.0, 1.0), );
 var<private> i_material_1: u32;
 
-// fn main_1() {
-//     let _e24 = gl_InstanceIndex_1;
-//     let _e28 = unnamed.object_output[bitcast<u32>(_e24)];
-//     o_material = _e28.material_idx;
-//     let _e33 = i_position_1;
-//     let _e37 = vec4<f32>(_e33.x, _e33.y, _e33.z, 1.0);
-//     o_view_position = (_e28.model_view * _e37);
-//     let _e45 = mat3x3<f32>(_e28.model_view[0].xyz, _e28.model_view[1].xyz, _e28.model_view[2].xyz);
-//     let _e46 = i_normal_1;
-//     o_normal = (_e45 * (_e28.inv_squared_scale * _e46));
-//     let _e49 = i_tangent_1;
-//     o_tangent = (_e45 * (_e28.inv_squared_scale * _e49));
-//     let _e52 = i_color_1;
-//     o_color = _e52;
-//     let _e53 = i_coords0_1;
-//     o_coords0_ = _e53;
-//     let _e54 = i_coords1_1;
-//     o_coords1_ = _e54;
-//     perVertexStruct.gl_Position = (_e28.model_view_proj * _e37);
-//     return;
-// }
+fn main_1() {
+    let _e24 = gl_InstanceIndex_1;
+    let _e28 = unnamed.object_output[bitcast<u32>(_e24)];
+    o_material = _e28.material_idx;
+    let _e33 = i_position_1;
+    let _e37 = vec4<f32>(_e33.x, _e33.y, _e33.z, 1.0);
+    o_view_position = (_e28.model_view * _e37);
+    let _e45 = mat3x3<f32>(_e28.model_view[0].xyz, _e28.model_view[1].xyz, _e28.model_view[2].xyz);
+    let _e46 = i_normal_1;
+    o_normal = (_e45 * (_e28.inv_squared_scale * _e46));
+    let _e49 = i_tangent_1;
+    o_tangent = (_e45 * (_e28.inv_squared_scale * _e49));
+    let _e52 = i_color_1;
+    o_color = _e52;
+    let _e53 = i_coords0_1;
+    o_coords0_ = _e53;
+    let _e54 = i_coords1_1;
+    o_coords1_ = _e54;
+    perVertexStruct.gl_Position = (_e28.model_view_proj * _e37);
+    return;
+}
 
 [[stage(vertex)]]
 fn main([[builtin(instance_index)]] gl_InstanceIndex: u32, [[location(0)]] i_position: vec3<f32>, [[location(1)]] i_normal: vec3<f32>, [[location(2)]] i_tangent: vec3<f32>, [[location(5)]] i_color: vec4<f32>, [[location(3)]] i_coords0_: vec2<f32>, [[location(4)]] i_coords1_: vec2<f32>, [[location(6)]] i_material: u32) -> VertexOutput {
@@ -75,7 +75,7 @@ fn main([[builtin(instance_index)]] gl_InstanceIndex: u32, [[location(0)]] i_pos
     i_coords0_1 = i_coords0_;
     i_coords1_1 = i_coords1_;
     i_material_1 = i_material;
-    // main_1();
+    main_1();
     let _e26 = o_material;
     let _e27 = o_view_position;
     let _e28 = o_normal;
