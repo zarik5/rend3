@@ -487,18 +487,18 @@ fn main_1() {
                     let _e532 = textureSampleCompareLevel(shadow, shadow_sampler, vec2<f32>(_e505.x, _e505.y), i32(_e505.z), _e496.z);
                     phi_2694_ = _e532;
                 }
-                // let _e534 = phi_2694_;
-                // let _e539 = unnamed_2.directional_lights[_e483].color;
-                // let _e541 = unnamed_2.directional_lights[_e483].direction;
-                // let _e544 = unnamed.uniforms.view;
-                // let _e554 = normalize((mat3x3<f32>(_e544[0].xyz, _e544[1].xyz, _e544[2].xyz) * -(_e541)));
-                // let _e556 = normalize((_e479 + _e554));
-                // let _e558 = abs(dot(_e462, _e479));
-                // let _e559 = (_e558 + 9.999999747378752e-6);
-                // let _e561 = clamp(dot(_e462, _e554), 0.0, 1.0);
-                // let _e563 = clamp(dot(_e462, _e556), 0.0, 1.0);
-                // let _e568 = (_e460 * _e460);
-                // let _e572 = ((((_e563 * _e568) - _e563) * _e563) + 1.0);
+                let _e534 = phi_2694_;
+                let _e539 = unnamed_2.directional_lights[_e483].color;
+                let _e541 = unnamed_2.directional_lights[_e483].direction;
+                let _e544 = unnamed.uniforms.view;
+                let _e554 = normalize((mat3x3<f32>(_e544[0].xyz, _e544[1].xyz, _e544[2].xyz) * -(_e541)));
+                let _e556 = normalize((_e479 + _e554));
+                let _e558 = abs(dot(_e462, _e479));
+                let _e559 = (_e558 + 9.999999747378752e-6);
+                let _e561 = clamp(dot(_e462, _e554), 0.0, 1.0);
+                let _e563 = clamp(dot(_e462, _e556), 0.0, 1.0);
+                let _e568 = (_e460 * _e460);
+                let _e572 = ((((_e563 * _e568) - _e563) * _e563) + 1.0);
                 // local_3 = (_e481 + ((((_e458 * 0.31830987334251404) + (((_e464 + ((vec3<f32>(clamp(dot(_e464, vec3<f32>(16.5, 16.5, 16.5)), 0.0, 1.0)) - _e464) * pow((1.0 - clamp(dot(_e554, _e556), 0.0, 1.0)), 5.0))) * ((_e568 / ((3.1415927410125732 * _e572) * _e572)) * (0.5 / ((_e561 * sqrt((((((-9.999999747378752e-6 - _e558) * _e568) + _e559) * _e559) + _e568))) + (_e559 * sqrt(((((-(_e561) * _e568) + _e561) * _e561) + _e568))))))) * 1.0)) * _e539) * (_e561 * (_e534 * _e468))));
                 continue;
             } else {
