@@ -427,95 +427,95 @@ fn main_1() {
         phi_2588_ = _e456;
         phi_2500_ = _e332;
     }
-    // let _e458 = phi_2658_;
-    // let _e460 = phi_2651_;
-    // let _e462 = phi_2627_;
-    // let _e464 = phi_2599_;
-    // let _e466 = phi_2588_;
-    // let _e468 = phi_2500_;
-    // let _e471 = unnamed_1.material.material_flags;
-    // if ((bitcast<bool>((_e471 & 4096u)) != bitcast<bool>(0u))) {
-    //     o_color = _e165;
-    // } else {
-    //     let _e476 = i_view_position_1;
-    //     let _e479 = -(normalize(_e476.xyz));
-    //     phi_2687_ = _e466;
-    //     phi_2686_ = 0u;
-    //     loop {
-    //         let _e481 = phi_2687_;
-    //         let _e483 = phi_2686_;
-    //         let _e486 = unnamed_2.directional_light_header.total_lights;
-    //         local = _e481;
-    //         local_1 = _e481;
-    //         local_2 = _e481;
-    //         if ((_e483 < _e486)) {
-    //             let _e491 = unnamed_2.directional_lights[_e483].view_proj;
-    //             let _e494 = unnamed.uniforms.inv_view;
-    //             let _e496 = ((_e491 * _e494) * _e476);
-    //             let _e499 = ((_e496.xy * 0.5) + vec2<f32>(0.5, 0.5));
-    //             let _e502 = (1.0 - _e499.y);
-    //             let _e505 = vec4<f32>(_e499.x, _e502, f32(_e483), _e496.z);
-    //             let _e506 = (_e499.x < 0.0);
-    //             phi_1222_ = _e506;
-    //             if (!(_e506)) {
-    //                 phi_1222_ = (_e499.x > 1.0);
-    //             }
-    //             let _e510 = phi_1222_;
-    //             phi_1229_ = _e510;
-    //             if (!(_e510)) {
-    //                 phi_1229_ = (_e502 < 0.0);
-    //             }
-    //             let _e514 = phi_1229_;
-    //             phi_1236_ = _e514;
-    //             if (!(_e514)) {
-    //                 phi_1236_ = (_e502 > 1.0);
-    //             }
-    //             let _e518 = phi_1236_;
-    //             phi_1244_ = _e518;
-    //             if (!(_e518)) {
-    //                 phi_1244_ = (_e496.z < -1.0);
-    //             }
-    //             let _e522 = phi_1244_;
-    //             phi_1251_ = _e522;
-    //             if (!(_e522)) {
-    //                 phi_1251_ = (_e496.z > 1.0);
-    //             }
-    //             let _e526 = phi_1251_;
-    //             if (_e526) {
-    //                 phi_2694_ = 1.0;
-    //             } else {
-    //                 let _e532 = textureSampleCompareLevel(shadow, shadow_sampler, vec2<f32>(_e505.x, _e505.y), i32(_e505.z), _e496.z);
-    //                 phi_2694_ = _e532;
-    //             }
-    //             let _e534 = phi_2694_;
-    //             let _e539 = unnamed_2.directional_lights[_e483].color;
-    //             let _e541 = unnamed_2.directional_lights[_e483].direction;
-    //             let _e544 = unnamed.uniforms.view;
-    //             let _e554 = normalize((mat3x3<f32>(_e544[0].xyz, _e544[1].xyz, _e544[2].xyz) * -(_e541)));
-    //             let _e556 = normalize((_e479 + _e554));
-    //             let _e558 = abs(dot(_e462, _e479));
-    //             let _e559 = (_e558 + 9.999999747378752e-6);
-    //             let _e561 = clamp(dot(_e462, _e554), 0.0, 1.0);
-    //             let _e563 = clamp(dot(_e462, _e556), 0.0, 1.0);
-    //             let _e568 = (_e460 * _e460);
-    //             let _e572 = ((((_e563 * _e568) - _e563) * _e563) + 1.0);
-    //             local_3 = (_e481 + ((((_e458 * 0.31830987334251404) + (((_e464 + ((vec3<f32>(clamp(dot(_e464, vec3<f32>(16.5, 16.5, 16.5)), 0.0, 1.0)) - _e464) * pow((1.0 - clamp(dot(_e554, _e556), 0.0, 1.0)), 5.0))) * ((_e568 / ((3.1415927410125732 * _e572) * _e572)) * (0.5 / ((_e561 * sqrt((((((-9.999999747378752e-6 - _e558) * _e568) + _e559) * _e559) + _e568))) + (_e559 * sqrt(((((-(_e561) * _e568) + _e561) * _e561) + _e568))))))) * 1.0)) * _e539) * (_e561 * (_e534 * _e468))));
-    //             continue;
-    //         } else {
-    //             break;
-    //         }
-    //         continuing {
-    //             let _e675 = local_3;
-    //             phi_2687_ = _e675;
-    //             phi_2686_ = (_e483 + bitcast<u32>(1));
-    //         }
-    //     }
-    //     let _e611 = local;
-    //     let _e614 = local_1;
-    //     let _e617 = local_2;
-    //     let _e622 = unnamed.uniforms.ambient;
-    //     o_color = max(vec4<f32>(_e611.x, _e614.y, _e617.z, _e165.w), (_e622 * _e165));
-    // }
+    let _e458 = phi_2658_;
+    let _e460 = phi_2651_;
+    let _e462 = phi_2627_;
+    let _e464 = phi_2599_;
+    let _e466 = phi_2588_;
+    let _e468 = phi_2500_;
+    let _e471 = unnamed_1.material.material_flags;
+    if ((bitcast<bool>((_e471 & 4096u)) != bitcast<bool>(0u))) {
+        o_color = _e165;
+    } else {
+        let _e476 = i_view_position_1;
+        let _e479 = -(normalize(_e476.xyz));
+        phi_2687_ = _e466;
+        phi_2686_ = 0u;
+        loop {
+            let _e481 = phi_2687_;
+            let _e483 = phi_2686_;
+            let _e486 = unnamed_2.directional_light_header.total_lights;
+            local = _e481;
+            local_1 = _e481;
+            local_2 = _e481;
+            if ((_e483 < _e486)) {
+                let _e491 = unnamed_2.directional_lights[_e483].view_proj;
+                let _e494 = unnamed.uniforms.inv_view;
+                let _e496 = ((_e491 * _e494) * _e476);
+                let _e499 = ((_e496.xy * 0.5) + vec2<f32>(0.5, 0.5));
+                let _e502 = (1.0 - _e499.y);
+                let _e505 = vec4<f32>(_e499.x, _e502, f32(_e483), _e496.z);
+                let _e506 = (_e499.x < 0.0);
+                phi_1222_ = _e506;
+                if (!(_e506)) {
+                    phi_1222_ = (_e499.x > 1.0);
+                }
+                let _e510 = phi_1222_;
+                phi_1229_ = _e510;
+                if (!(_e510)) {
+                    phi_1229_ = (_e502 < 0.0);
+                }
+                let _e514 = phi_1229_;
+                phi_1236_ = _e514;
+                if (!(_e514)) {
+                    phi_1236_ = (_e502 > 1.0);
+                }
+                let _e518 = phi_1236_;
+                phi_1244_ = _e518;
+                if (!(_e518)) {
+                    phi_1244_ = (_e496.z < -1.0);
+                }
+                let _e522 = phi_1244_;
+                phi_1251_ = _e522;
+                if (!(_e522)) {
+                    phi_1251_ = (_e496.z > 1.0);
+                }
+                let _e526 = phi_1251_;
+                if (_e526) {
+                    phi_2694_ = 1.0;
+                } else {
+                    let _e532 = textureSampleCompareLevel(shadow, shadow_sampler, vec2<f32>(_e505.x, _e505.y), i32(_e505.z), _e496.z);
+                    phi_2694_ = _e532;
+                }
+                let _e534 = phi_2694_;
+                let _e539 = unnamed_2.directional_lights[_e483].color;
+                let _e541 = unnamed_2.directional_lights[_e483].direction;
+                let _e544 = unnamed.uniforms.view;
+                let _e554 = normalize((mat3x3<f32>(_e544[0].xyz, _e544[1].xyz, _e544[2].xyz) * -(_e541)));
+                let _e556 = normalize((_e479 + _e554));
+                let _e558 = abs(dot(_e462, _e479));
+                let _e559 = (_e558 + 9.999999747378752e-6);
+                let _e561 = clamp(dot(_e462, _e554), 0.0, 1.0);
+                let _e563 = clamp(dot(_e462, _e556), 0.0, 1.0);
+                let _e568 = (_e460 * _e460);
+                let _e572 = ((((_e563 * _e568) - _e563) * _e563) + 1.0);
+                local_3 = (_e481 + ((((_e458 * 0.31830987334251404) + (((_e464 + ((vec3<f32>(clamp(dot(_e464, vec3<f32>(16.5, 16.5, 16.5)), 0.0, 1.0)) - _e464) * pow((1.0 - clamp(dot(_e554, _e556), 0.0, 1.0)), 5.0))) * ((_e568 / ((3.1415927410125732 * _e572) * _e572)) * (0.5 / ((_e561 * sqrt((((((-9.999999747378752e-6 - _e558) * _e568) + _e559) * _e559) + _e568))) + (_e559 * sqrt(((((-(_e561) * _e568) + _e561) * _e561) + _e568))))))) * 1.0)) * _e539) * (_e561 * (_e534 * _e468))));
+                continue;
+            } else {
+                break;
+            }
+            continuing {
+                let _e675 = local_3;
+                phi_2687_ = _e675;
+                phi_2686_ = (_e483 + bitcast<u32>(1));
+            }
+        }
+        let _e611 = local;
+        let _e614 = local_1;
+        let _e617 = local_2;
+        let _e622 = unnamed.uniforms.ambient;
+        o_color = max(vec4<f32>(_e611.x, _e614.y, _e617.z, _e165.w), (_e622 * _e165));
+    }
     return;
 }
 
