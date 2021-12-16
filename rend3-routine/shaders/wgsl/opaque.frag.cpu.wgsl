@@ -449,44 +449,44 @@ fn main_1() {
             local_1 = _e481;
             local_2 = _e481;
             if ((_e483 < _e486)) {
-                // let _e491 = unnamed_2.directional_lights[_e483].view_proj;
-                // let _e494 = unnamed.uniforms.inv_view;
-                // let _e496 = ((_e491 * _e494) * _e476);
-                // let _e499 = ((_e496.xy * 0.5) + vec2<f32>(0.5, 0.5));
-                // let _e502 = (1.0 - _e499.y);
-                // let _e505 = vec4<f32>(_e499.x, _e502, f32(_e483), _e496.z);
-                // let _e506 = (_e499.x < 0.0);
-                // phi_1222_ = _e506;
-                // if (!(_e506)) {
-                //     phi_1222_ = (_e499.x > 1.0);
-                // }
-                // let _e510 = phi_1222_;
-                // phi_1229_ = _e510;
-                // if (!(_e510)) {
-                //     phi_1229_ = (_e502 < 0.0);
-                // }
-                // let _e514 = phi_1229_;
-                // phi_1236_ = _e514;
-                // if (!(_e514)) {
-                //     phi_1236_ = (_e502 > 1.0);
-                // }
-                // let _e518 = phi_1236_;
-                // phi_1244_ = _e518;
-                // if (!(_e518)) {
-                //     phi_1244_ = (_e496.z < -1.0);
-                // }
-                // let _e522 = phi_1244_;
-                // phi_1251_ = _e522;
-                // if (!(_e522)) {
-                //     phi_1251_ = (_e496.z > 1.0);
-                // }
-                // let _e526 = phi_1251_;
-                // if (_e526) {
-                //     phi_2694_ = 1.0;
-                // } else {
-                //     let _e532 = textureSampleCompareLevel(shadow, shadow_sampler, vec2<f32>(_e505.x, _e505.y), i32(_e505.z), _e496.z);
-                //     phi_2694_ = _e532;
-                // }
+                let _e491 = unnamed_2.directional_lights[_e483].view_proj;
+                let _e494 = unnamed.uniforms.inv_view;
+                let _e496 = ((_e491 * _e494) * _e476);
+                let _e499 = ((_e496.xy * 0.5) + vec2<f32>(0.5, 0.5));
+                let _e502 = (1.0 - _e499.y);
+                let _e505 = vec4<f32>(_e499.x, _e502, f32(_e483), _e496.z);
+                let _e506 = (_e499.x < 0.0);
+                phi_1222_ = _e506;
+                if (!(_e506)) {
+                    phi_1222_ = (_e499.x > 1.0);
+                }
+                let _e510 = phi_1222_;
+                phi_1229_ = _e510;
+                if (!(_e510)) {
+                    phi_1229_ = (_e502 < 0.0);
+                }
+                let _e514 = phi_1229_;
+                phi_1236_ = _e514;
+                if (!(_e514)) {
+                    phi_1236_ = (_e502 > 1.0);
+                }
+                let _e518 = phi_1236_;
+                phi_1244_ = _e518;
+                if (!(_e518)) {
+                    phi_1244_ = (_e496.z < -1.0);
+                }
+                let _e522 = phi_1244_;
+                phi_1251_ = _e522;
+                if (!(_e522)) {
+                    phi_1251_ = (_e496.z > 1.0);
+                }
+                let _e526 = phi_1251_;
+                if (_e526) {
+                    phi_2694_ = 1.0;
+                } else {
+                    let _e532 = textureSampleCompareLevel(shadow, shadow_sampler, vec2<f32>(_e505.x, _e505.y), i32(_e505.z), _e496.z);
+                    phi_2694_ = _e532;
+                }
                 // let _e534 = phi_2694_;
                 // let _e539 = unnamed_2.directional_lights[_e483].color;
                 // let _e541 = unnamed_2.directional_lights[_e483].direction;
