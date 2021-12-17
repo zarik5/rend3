@@ -424,8 +424,8 @@ fn main_1() {
         phi_2651_ = (_e444 * _e444);
         phi_2627_ = normalize(_e216);
         phi_2599_ = (
-            (_e348 * _e336)
-            +
+            // (_e348 * _e336)
+            // +
             vec3<f32>(
                 (((0.1599999964237213 * _e347) * _e347) * _e349)
             )
@@ -436,7 +436,7 @@ fn main_1() {
     let _e458 = phi_2658_;
     let _e460 = phi_2651_;
     let _e462 = phi_2627_;
-    let _e464 = vec3<f32>(1.0, 2.0, 3.0); // phi_2599_;
+    let _e464 = phi_2599_;
     let _e466 = phi_2588_;
     let _e468 = phi_2500_;
     let _e471 = unnamed_1.material.material_flags;
