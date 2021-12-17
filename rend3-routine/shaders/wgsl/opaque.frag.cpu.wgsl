@@ -436,7 +436,7 @@ fn main_1() {
     let _e458 = phi_2658_;
     let _e460 = phi_2651_;
     let _e462 = phi_2627_;
-    let _e464 = phi_2599_;
+    let _e464 = vec3<f32>(0.1,0.2,0.3);// phi_2599_;
     let _e466 = phi_2588_;
     let _e468 = phi_2500_;
     let _e471 = unnamed_1.material.material_flags;
